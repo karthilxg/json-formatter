@@ -122,7 +122,7 @@ angular.module('jsonFormatter', ['RecursionHelper'])
     scope.type = getType(scope.json);
     scope.hasKey = typeof scope.key !== 'undefined';
     scope.getConstructorName = function(){
-      return getObjectName(scope.json);
+      return scope.customName || getObjectName(scope.json);
     };
 
     if (scope.type === 'string'){
@@ -205,7 +205,8 @@ angular.module('jsonFormatter', ['RecursionHelper'])
     scope: {
       json: '=',
       key: '=',
-      open: '='
+      open: '=',
+      customName: '@'
     },
     compile: function(element) {
 

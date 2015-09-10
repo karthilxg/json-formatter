@@ -1,7 +1,7 @@
 /*!
  * jsonformatter
  * 
- * Version: 0.4.0 - 2015-08-26T23:05:53.347Z
+ * Version: 0.4.0 - 2015-09-10T07:35:12.865Z
  * License: MIT
  */
 
@@ -130,7 +130,7 @@ angular.module('jsonFormatter', ['RecursionHelper'])
     scope.type = getType(scope.json);
     scope.hasKey = typeof scope.key !== 'undefined';
     scope.getConstructorName = function(){
-      return getObjectName(scope.json);
+      return scope.customName || getObjectName(scope.json);
     };
 
     if (scope.type === 'string'){
@@ -213,7 +213,8 @@ angular.module('jsonFormatter', ['RecursionHelper'])
     scope: {
       json: '=',
       key: '=',
-      open: '='
+      open: '=',
+      customName: '@'
     },
     compile: function(element) {
 

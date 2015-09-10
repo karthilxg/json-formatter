@@ -60,10 +60,20 @@ app.controller('MainCtrl', function ($scope, $http, JSONFormatterConfig) {
     $http.get('giant.json').then(function (json) {
       $scope.giant = json;
     });
-  }
+  };
 
   function Person(name){ this.name = name; }
   $scope.person = new Person('Mohsen');
+
+  $scope.person1 = {
+    name: 'Mohsen',
+    age: '25',
+    job: {
+      occupation: 'Software Engineer',
+      company: 'abcd',
+      role: 'Manager'
+    }
+  };
 
   $scope.$watch('textarea', function (str){
     var result = {};
